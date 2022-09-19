@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export default function Usuario() {
+export default function Usuario(props) {
 
-  const [name,setName] = useState("Catana");
+  const [name,setName] = useState(props.nome);
   const [perfil, setPerfil] = useState("assets/img/catanacomics.svg")
 
 
