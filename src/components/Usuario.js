@@ -4,11 +4,13 @@ export default function Usuario() {
 
   const [name,setName] = useState("Catana");
   const [perfil, setPerfil] = useState("assets/img/catanacomics.svg")
+
+
   return (
-    <div class="usuario">
+    <div className="usuario">
       <img src={perfil} onClick={() => setPerfil(prompt("Informe o link da foto"))}/>
-      <div class="texto">
-        <strong>{name}comics</strong>
+      <div className="texto">
+        <strong>{name}</strong>
         <span>
           {name}
           <ion-icon name="pencil" onClick={() => setName(prompt("Informe seu nome"))}></ion-icon>

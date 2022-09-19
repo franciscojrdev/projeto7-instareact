@@ -23,25 +23,25 @@ function Post(props) {
   const [save,setSave] = useState(false);
 
   return (
-    <div class="post">
-      <div class="topo">
-        <div class="usuario">
+    <div className="post">
+      <div className="topo">
+        <div className="usuario">
           <img src={props.profile} />
           {props.name}
         </div>
-        <div class="acoes">
+        <div className="acoes">
           <ion-icon name="ellipsis-horizontal"></ion-icon>
         </div>
       </div>
 
-      <div class="conteudo">
+      <div className="conteudo">
         <img src={props.src} />
       </div>
 
-      <div class="fundo">
-        <div class="acoes">
+      <div className="fundo">
+        <div className="acoes">
           <div>
-            <ion-icon name={click === true?"heart":"heart-outline"} class={click === true?"clicado":""} onClick={() => setClick(!click)}></ion-icon>
+            <ion-icon name={click === true?"heart":"heart-outline"} className={click === true?"clicado":""} onClick={() => setClick(!click)}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
@@ -50,9 +50,9 @@ function Post(props) {
           </div>
         </div>
 
-        <div class="curtidas">
+        <div className="curtidas">
           <img src={props.liked} />
-          <div class="texto">
+          <div className="texto">
             Curtido por <strong>{props.likedName}</strong> e{" "}
             <strong>outras {(click === true ? props.qtdLikes+1 : props.qtdLikes)} pessoas</strong>
           </div>
@@ -64,15 +64,16 @@ function Post(props) {
 
 export default function Posts() {
   return (
-    <div class="posts">
-      {arrPost.map((i) => (
+    <div className="posts">
+      {arrPost.map((el,i) => (
         <Post
-          profile={i.profile}
-          name={i.name}
-          src={i.src}
-          liked={i.liked}
-          likedName={i.likedName}
-          qtdLikes={i.qtdLikes}
+          key={i}
+          profile={el.profile}
+          name={el.name}
+          src={el.src}
+          liked={el.liked}
+          likedName={el.likedName}
+          qtdLikes={el.qtdLikes}
         />
       ))}
     </div>
