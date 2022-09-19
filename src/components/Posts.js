@@ -1,23 +1,6 @@
 import { useState } from "react";
+import arrPost from "../data/arrPosts";
 
-const arrPost = [
-  {
-    profile: "assets/img/meowed.svg",
-    name: "meowed",
-    src: "assets/img/gato-telefone.svg",
-    liked: "assets/img/respondeai.svg",
-    likedName: "respondeai",
-    qtdLikes: 101523
-  },
-  {
-    profile: "assets/img/barked.svg",
-    name: "barked",
-    src: "assets/img/dog.svg",
-    liked: "assets/img/adorable_animals.svg",
-    likedName: "adorable_animals",
-    qtdLikes: 99159
-  },
-];
 function Post(props) {
   const [click,setClick] = useState(false);
   const [save,setSave] = useState(false);
@@ -35,13 +18,13 @@ function Post(props) {
       </div>
 
       <div className="conteudo">
-        <img src={props.src} />
+        <img src={props.src} onDoubleClick={() => setClick(true)}/>
       </div>
 
       <div className="fundo">
         <div className="acoes">
           <div>
-            <ion-icon name={click === true?"heart":"heart-outline"} className={click === true?"clicado":""} onClick={() => setClick(!click)}></ion-icon>
+            <ion-icon name={click === true?"heart":"heart-outline"} class={click === true?"clicado":""} onClick={() => setClick(!click)}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
